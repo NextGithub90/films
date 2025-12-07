@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Film - Nana Bayek</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 py-4">
+
+        <div class="biolink-card category-card category-vid-film">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+
+            <div class="biolink-card-content">
+                <header class="text-center mb-5" data-aos="fade-down">
+                    <h2 class="name" style="font-size: 2rem;">Music Film</h2>
+                    <p class="small text-muted">Cinematic scoring</p>
+                </header>
+
+                <div class="row g-3">
+
+                    <!-- Video 1 -->
+                    <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="video-item" data-src="video/vid_film/Kartun.mp4">
+                            <video muted loop preload="metadata">
+                                <source src="video/vid_film/Kartun.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play-circle play-icon"></i>
+                            </div>
+                            <div class="video-title">Kartun</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                        <div class="video-item" data-src="video/vid_film/Rescore%20Avenger.mp4">
+                            <video muted loop preload="metadata">
+                                <source src="video/vid_film/Rescore%20Avenger.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play-circle play-icon"></i>
+                            </div>
+                            <div class="video-title">Rescore Avenger</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="video-item" data-src="video/vid_film/Trailer%20Karena%20Kamu%20Cuma%20Satu.mp4">
+                            <video muted loop preload="metadata">
+                                <source src="video/vid_film/Trailer%20Karena%20Kamu%20Cuma%20Satu.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play-circle play-icon"></i>
+                            </div>
+                            <div class="video-title">Trailer Karena Kamu Cuma Satu</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                        <div class="video-item" data-src="video/vid_film/Trailer%20Suster%20Ngesot.mp4">
+                            <video muted loop preload="metadata">
+                                <source src="video/vid_film/Trailer%20Suster%20Ngesot.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play-circle play-icon"></i>
+                            </div>
+                            <div class="video-title">Trailer Suster Ngesot</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 -->
+                    <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="video-item"
+                            data-src="video/vid_film/Trailer%20Watu%20Kelir%20by%20Nana%20Bayek.mp4">
+                            <video muted loop preload="metadata">
+                                <source src="video/vid_film/Trailer%20Watu%20Kelir%20by%20Nana%20Bayek.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play-circle play-icon"></i>
+                            </div>
+                            <div class="video-title">Trailer Watu Kelir</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 6 -->
+                    <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="350">
+                        <div class="video-item" data-src="video/vid_film/vid_film1.mp4">
+                            <video muted loop preload="metadata">
+                                <source src="video/vid_film/vid_film1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play-circle play-icon"></i>
+                            </div>
+                            <div class="video-title">Music Film 1</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-content-wrapper">
+            <i class="fas fa-times modal-close"></i>
+            <video id="modalVideo" class="modal-video" controls></video>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

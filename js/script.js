@@ -12,7 +12,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize Particles
   createParticles();
+
+  // Initialize Video Modal Logic
+  initVideoModal();
 });
+
+function initVideoModal() {
+  const modal = document.getElementById("videoModal");
+  if (!modal) return; // Only run if modal exists (on category pages)
+
+  const modalVideo = document.getElementById("modalVideo");
+  const closeBtn = document.querySelector(".modal-close");
+  const videoItems = document.querySelectorAll(".video-item");
+
+  videoItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      const videoSrc = this.getAttribute("data-src");
+      if (videoSrc) {
+        modalVideo.src = videoSrc;
+        modal.classList.add("active");
+        modalVideo.play();
+      }
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove("active");
+    modalVideo.pause();
+    modalVideo.currentTime = 0;
+    modalVideo.src = "";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+
+  // Close on outside click
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+}
 
 function createParticles() {
   const particlesContainer = document.createElement("div");
