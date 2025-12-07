@@ -26,6 +26,7 @@ body {
   width: 100%;
   max-width: 480px; /* Standard mobile/biolink width */
   max-height: 100%;
+  height: 1000px;
   background-image: url("../img/home.jpeg");
   background-size: cover;
   background-position: right;
@@ -54,7 +55,7 @@ body {
   margin: 0 auto;
   border-radius: 50%;
   padding: 3px;
-  background: linear-gradient(45deg, var(--primary-color), #302b63);
+
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
