@@ -1,0 +1,286 @@
+:root {
+  --primary-color: #e50914; /* Netflix Red-ish for cinematic feel */
+  --secondary-color: #141414; /* Dark background */
+  --accent-color: #ffffff;
+  --text-muted: #b3b3b3;
+  --card-bg: rgba(20, 20, 20, 0.8);
+  --card-hover-bg: rgba(40, 40, 40, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background: #111;
+  color: var(--accent-color);
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Optional subtle pattern for body background behind the card */
+  background-image: radial-gradient(#222 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Main Biolink Card */
+.biolink-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px; /* Standard mobile/biolink width */
+  max-height: 100%;
+  background-image: url("../img/home.jpeg");
+  background-size: cover;
+  background-position: right;
+  background-attachment: scroll;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  min-height: 80vh;
+}
+
+.biolink-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+  /* Custom Scrollbar for internal content if needed */
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+}
+
+/* Profile Section */
+.profile-img-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(45deg, var(--primary-color), #302b63);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #000;
+}
+
+.name {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.titles .badge {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid var(--glass-border);
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 0 2px;
+}
+
+.bio-text {
+  padding-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.small {
+  color: whitesmoke !important;
+}
+
+/* Particle Animation */
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; /* Changed from 0 to 9999 to appear on top */
+  pointer-events: none; /* Allows clicks to pass through to the card below */
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.5);
+  animation: fall linear forwards;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced Hover Effects */
+.social-btn {
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 0.9rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.social-btn:hover::before {
+  left: 100%;
+}
+
+.social-btn:hover {
+  background: var(--accent-color);
+  color: var(--secondary-color);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+  border-color: var(--primary-color);
+}
+
+.service-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.service-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(229, 9, 20, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.icon-box {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: -webkit-linear-gradient(45deg, #fff, #b3b3b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.5s;
+}
+
+.service-card:hover .icon-box {
+  transform: scale(1.2) rotate(5deg);
+  background: -webkit-linear-gradient(45deg, var(--primary-color), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.video-card {
+  background: #000;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.video-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 10px rgba(229, 9, 20, 0.3);
+}
+
+.video-card h6 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #eee;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0c29;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .biolink-card {
+    position: relative;
+    width: 100%;
+    max-width: 480px; /* Standard mobile/biolink width */
+    max-height: 100%;
+    background-image: url("../img/home.jpeg");
+    background-size: cover;
+    background-position: right;
+    background-attachment: scroll;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    min-height: 80vh;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+  .service-card {
+    padding: 1.5rem 0.5rem;
+  }
+}
