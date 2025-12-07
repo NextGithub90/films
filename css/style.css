@@ -26,9 +26,9 @@ body {
   width: 100%;
   max-width: 480px; /* Standard mobile/biolink width */
   max-height: 100%;
-  height: 1000px;
+
   background-image: url("../img/home.jpeg");
-  background-size: cover;
+  background-size: 361% 100%;
   background-position: right;
   background-attachment: scroll;
   border-radius: 30px;
@@ -269,7 +269,7 @@ body {
     max-width: 480px; /* Standard mobile/biolink width */
     max-height: 100%;
     background-image: url("../img/home.jpeg");
-    background-size: cover;
+    background-size: 361% 100%;
     background-position: right;
     background-attachment: scroll;
     border-radius: 30px;
