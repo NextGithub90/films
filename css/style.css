@@ -25,7 +25,6 @@ body {
   position: relative;
   width: 100%;
   max-width: 480px; /* Standard mobile/biolink width */
-  max-height: 100%;
 
   background-image: url("../img/home.jpeg");
   background-size: 361% 100%;
@@ -33,7 +32,7 @@ body {
   background-attachment: scroll;
   border-radius: 30px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  overflow: visible;
   min-height: 80vh;
 }
 
@@ -43,6 +42,9 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+  max-width: 900px; /* Wider for video grids on desktop */
+  max-height: 90vh;
+  overflow: hidden;
 }
 
 /* Music Film: Deep Cinematic Red & Black */
@@ -111,16 +113,18 @@ body {
 .video-item {
   cursor: pointer;
   position: relative;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 16/9;
+  min-height: 150px; /* Fallback height to ensure scrollability before video loads */
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(10, 10, 10, 0.9)); /* Better placeholder */
 }
 
 .video-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(229, 9, 20, 0.2);
   border-color: var(--primary-color);
 }
 
@@ -128,6 +132,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-item:hover video {
+  transform: scale(1.05);
 }
 
 .video-overlay {
@@ -226,6 +235,13 @@ body {
   /* Custom Scrollbar for internal content if needed */
   scrollbar-width: thin;
   scrollbar-color: #555 transparent;
+}
+
+/* Category pages content - ensure proper scrolling on desktop */
+.category-card .biolink-card-content {
+  padding-top: 4rem; /* Extra top padding to account for back button */
+  max-height: calc(90vh - 2rem);
+  overflow-y: auto;
 }
 
 /* Profile Section */
@@ -444,19 +460,49 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 576px) {
+  .container.d-flex {
+    align-items: flex-start !important; /* Allow scrolling from top */
+    min-height: auto !important;
+  }
+
+  .video-page-container {
+    align-items: flex-start !important;
+    min-height: auto !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
   .biolink-card {
     position: relative;
     width: 100%;
     max-width: 480px; /* Standard mobile/biolink width */
-    max-height: 100%;
     background-image: url("../img/home.jpeg");
     background-size: 361% 100%;
     background-position: right;
     background-attachment: scroll;
     border-radius: 30px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    min-height: 80vh;
+    overflow: visible;
+    min-height: auto;
+    height: auto;
+  }
+
+  /* Fix for category pages - ensure proper scrolling */
+  .category-card {
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+    margin-bottom: 2rem;
+  }
+
+  .category-card .biolink-card-content {
+    overflow: visible;
+    height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .video-item {
+    min-height: 180px; /* Slightly larger on mobile for better touch targets */
   }
 
   .name {
